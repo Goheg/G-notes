@@ -17,6 +17,10 @@ app.use(morgan('dev', {
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'healthy', timestamp: new Date() });
+});
+
 
 
 app.use('/api/notes', notesRoutes)
