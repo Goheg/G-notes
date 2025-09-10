@@ -9,7 +9,7 @@ export interface CustomError extends Error {
 export const errorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
     console.error((err as CustomError).stack)
 
-    let status = err.status || 500
+    let status = 500
     let message = err.message || 'Internal Server Error'
 
     if (err.name === 'ValidationError') {
