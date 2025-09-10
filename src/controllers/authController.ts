@@ -72,9 +72,10 @@ export const login = async (req: Request, res: Response) => {
 
         
 
-        res.json({
+        const {password: userPassword, ...userWithoutPassword} = user
+        res.status(200).json({
            message: 'Login Successful',
-           user,
+           user: userWithoutPassword,
            token
         })
     } catch(e) {
