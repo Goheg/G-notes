@@ -34,7 +34,7 @@ export const notes = pgTable('notes', {
 })
 
 export const userRelations = relations(users, ({many}) => ({
-    habits: many(notes),
+    notes: many(notes),
 }))
 
 
